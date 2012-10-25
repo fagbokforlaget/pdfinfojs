@@ -1,0 +1,23 @@
+{
+  "name": "pdftohpubjs",
+  "version": "0.0.1",
+  "description": "A pdf to hpub converter tool.",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {
+      "shelljs": "*"
+    , "mocha": "*"
+  },
+  "repository": "",
+  "keywords": [
+    "hpub",
+    "books",
+    "pdf",
+    "html5",
+    "converter"
+  ],
+  "author": "Deepak Thukral",
+  "license": "BSD"
+}
