@@ -1,4 +1,4 @@
-module.exports = process.env.PDFTOHPUB_COV
-  ? require('./lib-cov/pdftohpub')
-  : require('./lib/pdftohpub');
+module.exports = process.env.PDFINFO_COV
+  ? require('./lib-cov/pdfinfo')
+  : require('./lib/pdfinfo');
 
