@@ -1,6 +1,6 @@
-## pdfinfo - pdfinfo shell wrapper for Node.js
+## pdfinfojs - pdfinfo shell wrapper for Node.js
 
-pdfinfojs provides access to pdfindo via shell in node.js programs. Current version uses ShellJS for platform independent execution of shell commands.
+pdfinfojs provides access to pdfinfo via shell in nodejs.
 
 ### Installation
 
@@ -14,7 +14,6 @@ $ npm install pdfinfojs
 ```
 var pdfinfo = require('pdfinfojs'),
     info = new pdfinfo('tests/pdfs/sample.pdf');
-
 
 info.success(function(i) {
   console.log(i);
