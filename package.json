@@ -1,6 +1,6 @@
 {
-  "name": "pdfinfo",
-  "version": "0.1.0",
+  "name": "pdfinfojs",
+  "version": "0.1.1",
   "description": "A pdf meta information extractor",
   "url": "https://github.com/fagbokforlaget/pdfinfojs",
   "main": "index.js",
@@ -8,8 +8,10 @@
     "test": "make test"
   },
   "dependencies": {
-      "shelljs": "*"
-    , "mocha": "*"
+    "shelljs": "*"
+  },
+  "devDependencies": {
+    "mocha": "*"
   },
   "repository": {
     "type": "git",
