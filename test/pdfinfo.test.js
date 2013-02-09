@@ -12,6 +12,15 @@ describe('pdfinfo', function(){
     })
   });
 
+ describe('file_name_with_spaces', function(){
+    it('should add options', function(){
+      var pinfo = new pdfinfo(__dirname + '/pdfs/sample 1.pdf');
+      pinfo.add_options(['--space-as-offset 1', '--css-draw 0', '-h']);
+      assert.equal(1, pinfo.options.additional.indexOf('--space-as-offset'));
+      assert.equal(3, pinfo.options.additional.indexOf('--css-draw'));
+    })
+  });
+
 
   describe('info', function(){
     it('should get pdf info', function(done){
@@ -28,6 +37,24 @@ describe('pdfinfo', function(){
       pinfo.get();
     });
   });
+
+  describe('file_with_spaces_info', function(){
+    it('should get pdf info', function(done){
+      var pinfo = new pdfinfo(__dirname + '/pdfs/sample 1.pdf');
+
+      pinfo.success(function(ret) {
+        assert.equal('4', ret.pages);
+        done();
+      });
+
+      pinfo.error(function(error) {
+      });
+
+      pinfo.get();
+    });
+  });
+
+
 
   describe('error', function(done){
     it('should call error callback', function(){
