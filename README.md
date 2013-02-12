@@ -1,5 +1,5 @@
 ## pdfinfojs - pdfinfo shell wrapper for Node.js
-
+[![Build Status](https://travis-ci.org/fagbokforlaget/pdfinfojs.png)](https://travis-ci.org/fagbokforlaget/pdfinfojs)
 pdfinfojs provides access to pdfinfo via shell in nodejs.
 
 ### Installation
