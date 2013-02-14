@@ -38,6 +38,25 @@ describe('pdfinfo', function(){
     });
   });
 
+  describe('sync_info', function(){
+    it('should get pdf info sync call', function(){
+      var pinfo = new pdfinfo(__dirname + '/pdfs/sample.pdf');
+      var ret = pinfo.getSync();
+      assert.equal('4', ret.pages);
+    });
+  });
+
+  describe('sync_error', function(){
+    it('should throw exception', function(){
+      var pinfo = new pdfinfo(__dirname + '/pdfs/invalidfile.pdf');
+      function fn() {  
+        var ret = pinfo.getSync();
+      }
+      assert.throws(fn, /I\/O Error/);
+    });
+  });
+
+
   describe('file_with_spaces_info', function(){
     it('should get pdf info', function(done){
       var pinfo = new pdfinfo(__dirname + '/pdfs/sample 1.pdf');

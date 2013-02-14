@@ -11,6 +11,7 @@ $ npm install pdfinfojs
 ```
 
 ### Usage
+#### Asynchronus example
 ```
 var pdfinfo = require('pdfinfojs'),
     info = new pdfinfo('tests/pdfs/sample.pdf');
@@ -24,6 +25,15 @@ info.error(function(error) {
 });
 
 info.get();
+```
+#### Synchronous Example
+```
+var pdfinfo = require('pdfinfojs'),
+    info = new pdfinfo('tests/pdfs/sample.pdf');
+
+var data = info.getSync();
+console.log(data);
+
 ```
 
 ### Tests
