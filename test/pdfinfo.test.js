@@ -52,7 +52,7 @@ describe('pdfinfo', function(){
       function fn() {  
         var ret = pinfo.getSync();
       }
-      assert.throws(fn, /I\/O Error/);
+      assert.throws(fn, /pdfinfo error/);
     });
   });
 
