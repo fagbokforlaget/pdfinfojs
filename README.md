@@ -14,24 +14,24 @@ $ npm install pdfinfojs
 #### Asynchronus example
 ```
 var pdfinfo = require('pdfinfojs'),
-    info = new pdfinfo('tests/pdfs/sample.pdf');
+    pdf = new pdfinfo('tests/pdfs/sample.pdf');
 
-info.success(function(i) {
-  console.log(i);
+pdf.getInfo(function(err, info, params) {
+  if (err) {
+    console.error(err);
+  }
+  else {
+    console.log(info); //info is an object
+    console.log(params); // commandline params passed to pdfinfo cmd
+  }
 });
-
-info.error(function(error) {
-  console.log("conversion error: " + error);
-});
-
-info.get();
 ```
 #### Synchronous Example
 ```
 var pdfinfo = require('pdfinfojs'),
-    info = new pdfinfo('tests/pdfs/sample.pdf');
+    pdf = new pdfinfo('tests/pdfs/sample.pdf');
 
-var data = info.getSync();
+var data = pdf.getInfoSync();
 console.log(data);
 
 ```

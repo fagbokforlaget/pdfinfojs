@@ -38,6 +38,24 @@ describe('pdfinfo', function(){
     });
   });
 
+  describe('get_info', function(){
+    it('should get pdf info', function(done){
+      var pinfo = new pdfinfo(__dirname + '/pdfs/sample.pdf');
+      pinfo.getInfo(function(err, ret, params) { 
+        assert.equal('4', ret.pages);
+        done();
+      });
+    });
+  });
+
+  describe('sync_info', function(){
+    it('should get pdf info sync call', function(){
+      var pinfo = new pdfinfo(__dirname + '/pdfs/sample.pdf');
+      var ret = pinfo.getInfoSync();
+      assert.equal('4', ret.pages);
+    });
+  });
+
   describe('sync_info', function(){
     it('should get pdf info sync call', function(){
       var pinfo = new pdfinfo(__dirname + '/pdfs/sample.pdf');
@@ -56,24 +74,27 @@ describe('pdfinfo', function(){
     });
   });
 
-
-  describe('file_with_spaces_info', function(){
+  describe('file_with_spaces_get_info', function(){
     it('should get pdf info', function(done){
       var pinfo = new pdfinfo(__dirname + '/pdfs/sample 1.pdf');
-
-      pinfo.success(function(ret) {
+      pinfo.getInfo(function(err, ret, params) { 
         assert.equal('4', ret.pages);
         done();
       });
-
-      pinfo.error(function(error) {
-      });
-
-      pinfo.get();
     });
   });
 
 
+  describe('error', function(done){
+    it('should call error callback', function(){
+      var pinfo = new pdfinfo(__dirname + '/pdfs/invalidfile.pdf');
+      pinfo.getInfo(function(err, ret, params) {
+        if (err) {
+          done();
+        }
+      });
+    })
+  });
 
   describe('error', function(done){
     it('should call error callback', function(){
