@@ -14,11 +14,11 @@ $ npm install pdfinfojs
 #### Asynchronus example
 ```
 var pdfinfo = require('pdfinfojs'),
-    pdf = new pdfinfo('tests/pdfs/sample.pdf');
+    pdf = new pdfinfo('test/pdfs/sample.pdf');
 
 pdf.getInfo(function(err, info, params) {
   if (err) {
-    console.error(err);
+    console.error(err.stack);
   }
   else {
     console.log(info); //info is an object
@@ -29,7 +29,7 @@ pdf.getInfo(function(err, info, params) {
 #### Synchronous Example
 ```
 var pdfinfo = require('pdfinfojs'),
-    pdf = new pdfinfo('tests/pdfs/sample.pdf');
+    pdf = new pdfinfo('test/pdfs/sample.pdf');
 
 var data = pdf.getInfoSync();
 console.log(data);

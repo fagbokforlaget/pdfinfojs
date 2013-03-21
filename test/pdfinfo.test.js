@@ -89,7 +89,9 @@ describe('pdfinfo', function(){
     it('should call error callback', function(){
       var pinfo = new pdfinfo(__dirname + '/pdfs/invalidfile.pdf');
       pinfo.getInfo(function(err, ret, params) {
-        if (err) {
+        console.log(err);
+        if (err && ret === null) {
+          console.log(err);
           done();
         }
       });
