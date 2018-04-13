@@ -7,12 +7,10 @@
   "scripts": {
     "test": "make test"
   },
-  "dependencies": {
-    "shelljs": ">=0.1.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "mocha": "*",
-    "jscoverage": ">=0.3.5"
+    "jscoverage": "^0.6.0"
   },
   "repository": {
     "type": "git",
@@ -21,7 +19,6 @@
   "keywords": [
     "pdf",
     "pdfnifo",
-    "shelljs",
     "mocha"
   ],
   "author": "Deepak Thukral <iapain@iapa.in> http://iapa.in",
