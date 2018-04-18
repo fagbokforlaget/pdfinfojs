@@ -1,6 +1,6 @@
 {
   "name": "pdfinfojs",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A pdf meta information extractor",
   "url": "https://github.com/fagbokforlaget/pdfinfojs",
   "main": "index.js",
