@@ -25,7 +25,7 @@ describe('pdfinfo', function(){
   describe('get_info', function(){
     it('should get pdf info', function(done){
       var pinfo = new pdfinfo(__dirname + '/pdfs/sample.pdf');
-      pinfo.getInfo(function(err, ret, params) {
+      pinfo.getInfo().then(function(ret) {
         assert.equal('4', ret.pages);
         done();
       });
@@ -44,7 +44,7 @@ describe('pdfinfo', function(){
   describe('file_with_spaces_get_info', function(){
     it('should get pdf info', function(done){
       var pinfo = new pdfinfo(__dirname + '/pdfs/sample 1.pdf');
-      pinfo.getInfo(function(err, ret, params) { 
+      pinfo.getInfo().then(function(ret) {
         assert.equal('4', ret.pages);
         done();
       });
@@ -55,14 +55,10 @@ describe('pdfinfo', function(){
   describe('error', function(done){
     it('should call error callback', function(){
       var pinfo = new pdfinfo(__dirname + '/pdfs/invalidfile.pdf');
-      pinfo.getInfo(function(err, ret, params) {
-        console.log(err);
-        if (err && ret === null) {
-          console.log(err);
+      pinfo.getInfo()
+      .catch(function(err) {
           done();
-        }
       });
     })
   });
-
 })
