@@ -15,8 +15,13 @@ $ npm install pdfinfojs
 const pdfinfo = require('pdfinfojs');
 const pdf = new pdfinfo('test/pdfs/sample.pdf');
 
-const info = await pdf.getInfo(); // return Promise
-console.log(info);
+pdf.getInfo()
+.then(function (info) { // return Promise
+  console.log(info);
+})
+.catch(function (err) {
+  console.err(err);
+});
 ```
 
 ### Tests
