@@ -11,14 +11,12 @@ $ npm install pdfinfojs
 ```
 
 ### Usage
-```
+```javascript
 const pdfinfo = require('pdfinfojs');
 const pdf = new pdfinfo('test/pdfs/sample.pdf');
 
 const info = await pdf.getInfo(); // return Promise
 console.log(info);
-
-});
 ```
 
 ### Tests
