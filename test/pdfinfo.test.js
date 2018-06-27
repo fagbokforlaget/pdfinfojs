@@ -57,8 +57,17 @@ describe('pdfinfo', function(){
       var pinfo = new pdfinfo(__dirname + '/pdfs/invalidfile.pdf');
       pinfo.getInfo()
       .catch(function(err) {
-          done();
+        done();
       });
-    })
+    });
+
+    it('should call error callback when pdfinfo chokes (since it cannot handle a password protected file)', function(){
+      var pinfo = new pdfinfo(__dirname + '/pdfs/pdf-with-password.pdf');
+      pinfo.getInfo()
+      .catch(function(err) {
+        expect(err).toEqual('Command Line Error: Incorrect password');
+        done();
+      });
+    });
   });
 })
