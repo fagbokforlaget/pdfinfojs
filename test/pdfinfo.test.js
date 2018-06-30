@@ -69,5 +69,24 @@ describe('pdfinfo', function(){
         done();
       });
     });
+
+    it('should call error callback when pdfinfo chokes (since it cannot handle a password protected file) in sync mode', function(done){
+      var pinfo = new pdfinfo(__dirname + '/pdfs/pdf-with-password.pdf');
+      try {
+        var resp = pinfo.getInfoSync();
+      } catch (err) {
+        done();
+      }
+    });
+
+    it('should call error when command is not found', async function() {
+      var pinfo = new pdfinfo(__dirname + '/pdfs/sample 1.pdf', {command: 'pdfinfofake'});
+      try {
+        await pinfo.getInfo()
+      } catch (err) {
+        assert.ok(true)
+      }
+    });
+
   });
 })
